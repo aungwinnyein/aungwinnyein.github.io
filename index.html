@@ -1,39 +1,764 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Aung Win Nyein Portfolio</title>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Aung Win Nyein - System Engineer Portfolio"
+    >
+
+    <title>Aung Win Nyein | System Engineer</title>
+
+    <style>
+        /* ---------- Basic Settings ---------- */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #38bdf8;
+            --secondary-color: #2563eb;
+            --dark-color: #0f172a;
+            --card-color: #1e293b;
+            --light-color: #f8fafc;
+            --text-color: #cbd5e1;
+            --border-color: #334155;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto 45px;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        /* ---------- Navigation ---------- */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 10%;
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            color: var(--light-color);
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ---------- Home Section ---------- */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 10%;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #1e3a8a 0%,
+                    #0f172a 50%
+                );
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 18px;
+            color: var(--primary-color);
+            background-color: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 30px;
+        }
+
+        .hero h1 {
+            margin-bottom: 12px;
+            font-size: 4rem;
+        }
+
+        .hero h2 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 35px;
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary-button {
+            color: #ffffff;
+            background-color: var(--secondary-color);
+        }
+
+        .primary-button:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-3px);
+        }
+
+        .secondary-button {
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .secondary-button:hover {
+            color: var(--dark-color);
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* ---------- About Section ---------- */
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .about-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-placeholder {
+            width: 320px;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+            background:
+                linear-gradient(
+                    135deg,
+                    #1e3a8a,
+                    #0f172a
+                );
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            font-size: 5rem;
+            font-weight: bold;
+            box-shadow: 0 0 40px rgba(56, 189, 248, 0.2);
+        }
+
+        .about-text h3 {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .information-list {
+            margin-top: 25px;
+            list-style: none;
+        }
+
+        .information-list li {
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .information-list strong {
+            color: var(--light-color);
+        }
+
+        /* ---------- Skills Section ---------- */
+
+        .alternate-background {
+            background-color: #111c30;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .skill-card {
+            padding: 30px 22px;
+            text-align: center;
+            background-color: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-8px);
+        }
+
+        .skill-icon {
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .skill-card p {
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+
+        /* ---------- Project Section ---------- */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            background-color: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-7px);
+        }
+
+        .project-number {
+            margin-bottom: 12px;
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .project-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            flex-grow: 1;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .technology-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            padding: 6px 11px;
+            color: var(--primary-color);
+            background-color: rgba(56, 189, 248, 0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* ---------- Certification Section ---------- */
+
+        .certification-card {
+            max-width: 750px;
+            margin: auto;
+            padding: 35px;
+            text-align: center;
+            background-color: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .certification-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .certification-card p {
+            color: var(--text-color);
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 7px 16px;
+            color: #fbbf24;
+            background-color: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 25px;
+        }
+
+        /* ---------- Contact Section ---------- */
+
+        .contact-container {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-container p {
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        /* ---------- Footer ---------- */
+
+        footer {
+            padding: 25px 10%;
+            text-align: center;
+            color: var(--text-color);
+            background-color: #080f1e;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* ---------- Mobile Design ---------- */
+
+        @media screen and (max-width: 768px) {
+            section {
+                padding: 65px 6%;
+            }
+
+            nav {
+                padding: 15px 6%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 85vh;
+                padding: 80px 6%;
+            }
+
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-placeholder {
+                width: 220px;
+                height: 220px;
+                font-size: 3.5rem;
+            }
+
+            .information-list {
+                text-align: left;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Aung Win Nyein</h1>
-    <h2>System Engineer</h2>
 
-    <h3>About Me</h3>
-    <p>
-        System Engineer passionate about Linux,
-        Kubernetes, VMware, Networking, and Cloud Technologies.
-    </p>
+    <!-- Navigation -->
 
-    <h3>Skills</h3>
-    <ul>
-        <li>Linux Administration</li>
-        <li>Kubernetes</li>
-        <li>Docker</li>
-        <li>VMware</li>
-        <li>Palo Alto Firewall</li>
-        <li>Networking</li>
-    </ul>
+    <nav>
+        #home
+            Aung<span>WN</span>
+        </a>
 
-    <h3>Projects</h3>
-    <ul>
-        <li>Kubernetes Kind Cluster Lab</li>
-        <li>Linux Server Administration</li>
-        <li>Palo Alto Firewall Management</li>
-    </ul>
+        <ul class="nav-links">
+            <li>#homeHome</a></li>
+            <li>#aboutAbout</a></li>
+            <li>#skillsSkills</a></li>
+            <li>#projectsProjects</a></li>
+            <li>#certificationCertification</a></li>
+            <li>#contactContact</a></li>
+        </ul>
+    </nav>
 
-    <h3>Certification</h3>
-    <p>LFCS (In Progress)</p>
+    <!-- Home -->
 
-    <h3>Contact</h3>
-    <p>Email: your-email@example.com</p>
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <span class="hero-label">
+                Welcome to my portfolio
+            </span>
+
+            <h1>Aung Win Nyein</h1>
+
+            <h2>System Engineer</h2>
+
+            <p>
+                I work with Linux, Kubernetes, VMware, networking,
+                firewalls and enterprise infrastructure. I enjoy
+                building reliable systems and solving technical
+                problems.
+            </p>
+
+            <div class="button-group">
+                #projects
+                    View My Projects
+                </a>
+
+                #contact
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- About Me -->
+
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+
+            <p class="section-description">
+                Learn more about my professional interests and
+                technical focus.
+            </p>
+
+            <div class="about-container">
+                <div class="about-image">
+                    <div class="profile-placeholder">
+                        AWN
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <h3>System Engineer from Myanmar</h3>
+
+                    <p>
+                        I am a System Engineer with a strong interest
+                        in Linux administration, container technologies,
+                        virtualization, networking and infrastructure
+                        security.
+                    </p>
+
+                    <p>
+                        I continuously develop my technical knowledge
+                        through practical labs involving Kubernetes,
+                        Docker and Linux server administration.
+                    </p>
+
+                    <ul class="information-list">
+                        <li>
+                            <strong>Role:</strong>
+                            System Engineer
+                        </li>
+
+                        <li>
+                            <strong>Location:</strong>
+                            Myanmar
+                        </li>
+
+                        <li>
+                            <strong>Focus:</strong>
+                            Linux, infrastructure and cloud technologies
+                        </li>
+
+                        <li>
+                            <strong>Certification:</strong>
+                            LFCS in progress
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+
+        <section id="skills" class="alternate-background">
+            <h2 class="section-title">Technical Skills</h2>
+
+            <p class="section-description">
+                Technologies and platforms I use for system
+                administration and infrastructure support.
+            </p>
+
+            <div class="skills-grid">
+                <article class="skill-card">
+                    <div class="skill-icon">🐧</div>
+                    <h3>Linux</h3>
+                    <p>
+                        Linux installation, administration, services,
+                        storage, permissions and troubleshooting.
+                    </p>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon">☸</div>
+                    <h3>Kubernetes</h3>
+                    <p>
+                        Pods, Deployments, Services, YAML manifests,
+                        logs and workload troubleshooting.
+                    </p>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon">🐳</div>
+                    <h3>Docker</h3>
+                    <p>
+                        Container deployment, image management and
+                        local laboratory environments.
+                    </p>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon">🖥️</div>
+                    <h3>VMware</h3>
+                    <p>
+                        Virtual machine deployment, configuration and
+                        infrastructure support.
+                    </p>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon">🛡️</div>
+                    <h3>Palo Alto Firewall</h3>
+                    <p>
+                        Security policies, NAT configuration,
+                        monitoring and network troubleshooting.
+                    </p>
+                </article>
+
+                <article class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>Networking</h3>
+                    <p>
+                        TCP/IP, DNS, DHCP, VLANs, routing and
+                        connectivity troubleshooting.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Projects -->
+
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+
+            <p class="section-description">
+                Practical projects that demonstrate my technical
+                knowledge and troubleshooting experience.
+            </p>
+
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-number">01</div>
+
+                    <h3>Kubernetes Kind Cluster Lab</h3>
+
+                    <p>
+                        Built a local Kubernetes cluster with Kind.
+                        Created Deployments and Services, managed Pods
+                        and investigated workload issues using logs
+                        and events.
+                    </p>
+
+                    <div class="technology-tags">
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Kind</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">YAML</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-number">02</div>
+
+                    <h3>Linux Server Administration</h3>
+
+                    <p>
+                        Practised user management, permissions,
+                        filesystem administration, service management,
+                        package installation and system troubleshooting.
+                    </p>
+
+                    <div class="technology-tags">
+                        <span class="tag">Linux</span>
+                        <span class="tag">RHEL</span>
+                        <span class="tag">Oracle Linux</span>
+                        <span class="tag">Bash</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-number">03</div>
+
+                    <h3>Palo Alto Firewall Management</h3>
+
+                    <p>
+                        Worked with security rules, NAT policies,
+                        network monitoring and command-line
+                        troubleshooting in a firewall environment.
+                    </p>
+
+                    <div class="technology-tags">
+                        <span class="tag">Palo Alto</span>
+                        <span class="tag">Firewall</span>
+                        <span class="tag">NAT</span>
+                        <span class="tag">Security</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Certification -->
+
+        <section
+            id="certification"
+            class="alternate-background"
+        >
+            <h2 class="section-title">Certification</h2>
+
+            <p class="section-description">
+                My current professional certification goal.
+            </p>
+
+            <div class="certification-card">
+                <h3>
+                    Linux Foundation Certified System Administrator
+                </h3>
+
+                <p>
+                    Developing hands-on Linux system administration
+                    skills and preparing for the LFCS certification.
+                </p>
+
+                <span class="status">In Progress</span>
+            </div>
+        </section>
+
+        <!-- Contact -->
+
+        <section id="contact">
+            <h2 class="section-title">Contact Me</h2>
+
+            <div class="contact-container">
+                <p>
+                    I am interested in System Engineer,
+                    Linux Administrator, Infrastructure and
+                    DevOps-related opportunities.
+                </p>
+
+                <div class="button-group">
+                    <a
+                        href="mailto:your-email@example.com"
+                        class="button primary-button"
+                    >
+                        Send Email
+                    </a>
+
+                    https://github.com/yourusername
+                        View GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+        <p>
+            © 2026 Aung Win Nyein. System Engineer Portfolio.
+        </p>
+    </footer>
+
 </body>
 </html>
